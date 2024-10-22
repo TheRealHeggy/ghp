@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Replace this with your actual Replicate API Token
-REPLICATE_API_TOKEN = 'r8_bvGvZZUJIi6ijlsTgJeaQybuSPmBLI90W3ek1'
+REPLICATE_API_TOKEN = '_____________________________________'
 
 REPLICATE_API_URL = 'https://api.replicate.com/v1/predictions'
 
