@@ -1,6 +1,6 @@
 # ghp
 <div id="header" align="center">
-  <img src="https://photos.app.goo.gl/qnFou39C3ZfR8ik8A" width="100"/>
+  <img src="https://codehs.com/uploads/568713bbc0b06d2987516dc1b6a30520" width="100"/>
 </div>
 <div id="badges">
   <a href="https://www.linkedin.com/in/luke-cheng-ba8752290/">
