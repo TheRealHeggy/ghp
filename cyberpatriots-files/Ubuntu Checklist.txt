@@ -1,0 +1,71 @@
+CyberPatriots Ubuntu Checklist?
+-------------------------------
+Change Users
+	delete unauthorized users
+	change groups/perms for authorized admins/non-admins
+	add any users needed
+	ensure all passwords are secure (uncomplex)
+	DONT CHANGE A PASSWORD IF IT IS STATED NOT TO
+	disable guest? in /etc/lightdm/lightdm.conf
+		allow-guest=false
+		sudo restart lightdm to make sure changes are confirmed
+Secure Root Login (if stated)
+	sudo nano /etc/ssh/sshd_config
+		PermitRootLogin no
+Password Policies
+	in /etc/login.defs (change min_days, max_days, warn_age)
+	in /etc/pam.d/common-password (minimum length, password history, complexity)
+		for complexity, may need sudo apt-get install libpam-cracklib
+			locate line with pam.cracklib.so
+	in /etc/pam.d/common-auth (add deny=5, unlock_time =1800 with line has pam_tally2.so)
+Updates
+	ensure automatic updates is on (daily)
+	update system (general updates)
+	don't update the version if not stated
+	update any apps that need to be updated
+		you can google; some apps may have an update system built in; you can also update in terminal
+Network
+	ensure firewall is on (sudo ufw enable)
+	ensure that the # of firewalls follow the readme
+	disable IPv6?
+	disable IP forwarding/spoofing	
+	turn on cookie protection
+Deleting
+	delete any non-work related files (if stated)
+		you can use locate *.____ for file types
+			(.mp3, mp4, .png, .jpg)
+	delete hacking tools (ophcrack, hashcat, nmap, aircrack-ng, wireshark,telnet,ftp,vnc,nfs,apache)
+	delete suspicious processes/services
+Installing
+	install clamav (may not function?)
+		sudo freshclam
+		sudo clamscan -i -r --remove=yes /(removes viruses?)
+
+	install any missing apps?
+Services
+	config files for REQUIRED services
+	ensure services are legitimate
+		service --status-all
+	list services and purge any
+Processes
+	list processes (sudo netstat -tulnp)
+	find any programs not supposed to (apache, ftp, telnet, nc)
+	kill the process (sudo kill PID)
+		pid = process identification number
+Extra/Miscellaneous
+	change user perms on viewing files?
+	change sharing/not sharing drives
+	autocclean?
+	autoplay off?
+	firefox settings?
+	audit policies? (code is not on the other, yet)
+	log files?
+	
+THIS IS COPIED
+Potentially Unwanted Packages 
+i. 
+Databases 1. mysql, postgresql, firebird, mariadb, mongodb 
+ii. 
+Insecure Network Protocols 1. Openssh-client, openssh-server, ssh, ftp, telnet, telnetd, samba, snmp, nis 
+iii. 
+HTTP Servers 1. apache, ngnix, lighttpd, jetty, gunicorn, mongrel, tornado, httpd, yaws, aolserver, boa, uwsgi, hunchentoot, unicorn, tntnet 

@@ -1,0 +1,111 @@
+IMPORTANT DEBIAN/UBUNTU (Linux) COMMANDS!
+sudo apt-get install ________   (installs the latest version of the app)
+sudo apt-get update/upgrade (updates everything)
+sudo nano /etc/login.defs (allows for changing of the password expiration) (suggested values: 90 MAX, 10 MIN, 5)
+passwd (changes current user's password)
+sudo passwd ______ (changes the designated user's password)
+locate *.___ (locates all files of this specific type)
+find / -uid ____ (locates files with the specific uids; finds the path)
+	you can add a | less command to show only values that worked
+	other tags: -size, -type
+cat /etc/group (shows groups and the members)
+sudo nano /etc/pam.d/common-password (edits min/mas password along with retry incorrect passwords. minimum password command: minlen = 8; remember past passwords: remember=5; ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-' makes sure complexity is confirmed)
+sudo apt-get purge _____ (delete unwanted apps -- nmap, hashcat, ophcrack, wireshark, hydra, nikto, john, netcat, aircrack-ng, metasploit?)
+	sudo apt remove ______ -y (also works as remover)
+sudo ufw enable (turns on firewall)
+sudo userdel -r ____ (deletes a user)
+sudo useradd _____ (creates a user)
+sudo groupadd ____ (creates group)
+sudo adduser ____ _____ (add user to group)
+	sudo usermod -a -G ______ _________ (also adds user to a group)
+sudo usermod -G _____ - _____ (deletes a user from a group; first space is group name, second space is user)
+	sudo deluser _____ _____ (also works as remove from group)
+sudo nano /etc/ssh/sshd_config (allows for the enabling/disabling of root login; PermitRootLogin -> PermitRootLogin no)
+service _____ stop (depends if the ReadME wants the services stopped)
+	sudo systemctl stop (stops a service)
+sudo nano /etc/crontab -e (schedule task, delete any unwanted things in here)
+sudo /usr/lib/lightdm/lightdm-set-defaults -1 false (disables guest account; however, this works on ubuntu, not sure abt debian)
+sudo nano /etc/pam.d/common-auth (account lockout policy; deny=__ (allowed number of failed))
+sudo apt install libpam-cracklib (installs libpam)
+sudo apt-get install unattended-upgrades (automatic upgrades)
+	sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+		edit /etc/apt/apt.conf.d/10periodic
+			set everything to 1 (updates daily)
+rm ___.___ (deletes a file)
+sudo systemctl list-units --type=service (lists all services)
+sudo dpkg-reconfigure ____ (lightdm or gdm3, mdm, kdm)
+ls -lS (lists directories)
+sudo apt install openssh-client (installs ssh)
+	ssh ____@_______ (user then server ip)
+cd /etc/lightdm
+	gedit lightdm.conf
+	add "[Seat:*] allow-guest=false" (disables guest account)
+	OR 
+	sudo nano /etc/lightdm/lightdm.conf
+dpkg -l (shows software; delete suspicious software)
+uname -sr (shows current kernel version)
+	sudo apt-get update -> sudo apt-get dist-upgrade (upgrades the kernel)
+sudo crontab -e (opens crontab)
+ss -A inet -anp (shows open network ports)
+	netstate -A inet,inet6 -anp (also works)
+rm -r /home/user (removes the directory)
+sudo systemctl start sshd.service(starts ssh)
+	sudo systemctl stop sshd.service/ssh.service (stops ssh)
+	sudo systemctl restart sshd.service (restarts ssh)
+	sudo systemctl status sshd.service (shows current states of ssh)
+		NOTE: sudo systemctl start/stop/etc. _____ works for any service (plug service name into blank)
+sudo systemctl disable ______ (disables the service when the system boots)
+	sudo systemctl enable _____ (starts the service the moment the system boots)
+sudo systemctl mask ____ (causes the user to be unable to start the service)
+	sudo systemctl unmask ____ (causes user to be able to start the service; opposite of mask)
+ps- (shows all processes) (not sure if this works?)
+sudo sysctl -n net.ipv4.tcp_syncookies (enables cookie protection?)
+	sudo nano /etc/sysctl.conf
+		net.ipv4.tcp_syncookies; change 0 to 1
+echo "net.ipv6.conf.all.disable_ipv6 = 1" (disables ipv6?)
+echo 0 | sudo tee /proc/sys/net/ipv5/ip_forward (disables ip forwarding?)
+echo "nospoof on" | sudo tee -a
+sudo python bad_processes.py (removes bad python processes? idk if this works this is from online)
+*** NOTE ***
+	You can add a -y at the end of a line to automatically confirm it as yes
+	"| less" makes only the correct values show or reverse order shown  (without quotations)
+	You can add a -f at the end of a line to brute force the command
+	Most preinstalled apps are gnome-______
+	A shorthand for list is -l
+	Pressing q closes out in terminal (i think?)
+	crtl + p in terminal rewrites your last used line
+	--now forces the command to happen the moment it is executed
+	cd /___/____ changes the directory so you do not need to do sudo /___/___
+		instead, you can just type sudo ____ (command)
+		press q to escape
+	cat allows you to view the file
+		sudo nano allows you to edit and view
+	find subcommands:
+		name
+		size
+		type
+		??? (there is probably more but im a bit lazy to search them up rn)
+	chmod changes file permissions
+		u = user/owner perms, g=groups perms, o = other
+			you can add a + or - to determine whether they can/cannot
+			chmod ___ +/- ____ file.txt\
+	kill/pkill terminates a process; kill uses UID, pkill uses name
+	grep - searches for a specific pattern/expression in text files
+		-i = ignore case distinctions
+		-v = invert
+		-r = recursively
+		-l = print only the names of files with a match
+		-n = displays line numbers of matches
+		-w = matches whole words instead of partial
+		-c = count # of matching lines with no display
+		-e = multiple patterns
+		-A/-B = before/after
+		-C = display both before and after
+	whoami shows current user (shouldn't be needed)
+	df shows disk space (your storage could be full!)
+	uname shows system info
+		-a tag shows all system info
+	last shows login history
+	su - username = switches to another user account
+	crtl + A goes to beginning of line
+	crtl + E goes to end of line
