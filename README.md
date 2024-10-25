@@ -1,6 +1,6 @@
 # ghp
 <div id="header" align="center">
-  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.redbubble.com%2Fshop%2Fkilljoy%2Bchibi&psig=AOvVaw0uEAodCADvTnllVFZKsy7M&ust=1729956566504000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDlu9DsqYkDFQAAAAAdAAAAABAE" width="100"/>
+  <img src="https://photos.app.goo.gl/qnFou39C3ZfR8ik8A" width="100"/>
 </div>
 <div id="badges">
   <a href="https://www.linkedin.com/in/luke-cheng-ba8752290/">
