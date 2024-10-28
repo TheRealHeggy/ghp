@@ -1,3 +1,14 @@
 steps:
 
 forensics
+sudo nano /etc/pam.d/common-password 
+  set minlen=8 remember=5 ucredit=-1 dcredit=-1 ocredit=-1 lcredit=-1
+sudo nano /etc/pam.d/common-auth
+  set retry=5 deny=5
+sudo nano /etc/login.defs
+  set MAX=90 MIN=10 WARN=5
+sudo nano /usr/lib/lightdm/lightdm-set-defaults
+  set -1 and guest as false
+sudo nano /etc/ssh/sshd_config
+  set PermitRootLogin no
+  add PermitEmptyPasswords no
