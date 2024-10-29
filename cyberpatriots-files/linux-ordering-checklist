@@ -12,3 +12,6 @@ sudo nano /usr/lib/lightdm/lightdm-set-defaults
 sudo nano /etc/ssh/sshd_config
   set PermitRootLogin no
   add PermitEmptyPasswords no
+sudo ufw enable
+  if not installed:
+    sudo apt-get install ufw
