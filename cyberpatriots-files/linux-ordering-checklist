@@ -1,17 +1,66 @@
 steps:
 
 forensics
+check readme
+
 sudo nano /etc/pam.d/common-password 
   set minlen=8 remember=5 ucredit=-1 dcredit=-1 ocredit=-1 lcredit=-1
+
 sudo nano /etc/pam.d/common-auth
-  set retry=5 deny=5
+  set retry=5 deny=5 unlock_time=1800
+
 sudo nano /etc/login.defs
   set MAX=90 MIN=10 WARN=5
+
 sudo nano /usr/lib/lightdm/lightdm-set-defaults
-  set -1 and guest as false
+  set -1 and allow-guest = false
+
 sudo nano /etc/ssh/sshd_config
   set PermitRootLogin no
   add PermitEmptyPasswords no
+
 sudo ufw enable
   if not installed:
     sudo apt-get install ufw
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+DO THIS BEFORE DELETING CRITICAL SERVICES!!
+sudo netstat -tulnp
+  apache/apache2/ftp/telnet/nc listening on ports
+  sudo kill PID
+    PID = process ID
+
+critical services to be disabled (based on readme)
+  apache/apache2
+  ftp
+  bind9
+  mysql
+  samba
+  ssh
+  telnet
+  dns
+
+locate *.___
+  mp3
+  mp4
+  jpg
+  jpeg
+  pdf
+  png
+  wav
+  avi
+  gif
+  tiff
+
+sudo apt-get purge nikto wireshark wireshark-common aircrack-ng hashcat nmap ophcrack netcat john hydra 
+
+common games:
+  freeciv
+  doomsday
+    freedoom
+  gnome-mahjongg
+  gnome-sudoku
+  gnome-mines
+  aisleriot
