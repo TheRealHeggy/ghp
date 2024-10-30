@@ -32,6 +32,8 @@ sudo netstat -tulnp
   sudo kill PID
     PID = process ID
 
+dpkg -l             |
+find bad software:  V
 critical services to be disabled (based on readme)
   apache/apache2
   ftp
@@ -64,3 +66,39 @@ common games:
   gnome-sudoku
   gnome-mines
   aisleriot
+
+turn on automatic updates
+  sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+		sudo nano /etc/apt/apt.conf.d/10periodic
+			set everything to 1 (updates daily)
+
+user settings:
+  with control panel:
+    manually go through
+  without:
+    cat /etc/groups
+      shows all groups with their respective users
+      sudo usermod -a -G ______ _________ (add)
+      sudo deluser (deletes)
+    cat /etc/passwd
+      shows all users
+      sudo userdel -r ____ (deletes a user)
+      sudo useradd _____ (creates a user)
+    sudo passwd ____
+      change user password
+
+chmod 644 /etc/passwd
+chmod 640 /etc/shadow
+chmod 640 .bash_history
+chmod 777 /etc/hosts
+chmod 644 /etc/apt/apt.conf.d/10periodic
+
+missing points? do these:
+disable ipv6
+firefox/google chrome security settings
+audit policies
+autocclean/autoplay
+user perms on files
+sharing/not sharing folders
+chrootkit rkhunter clamav
+cookie protection
