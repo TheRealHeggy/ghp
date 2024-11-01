@@ -43,6 +43,7 @@ critical services to be disabled (based on readme)
   ssh
   telnet
   dns
+  nginx
 
 locate *.___
   mp3
