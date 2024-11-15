@@ -8,6 +8,7 @@ sudo nano /etc/pam.d/common-password
 
 sudo nano /etc/pam.d/common-auth
   set retry=5 deny=5 unlock_time=1800
+  remove the words "nullok" if anywhere
 
 sudo nano /etc/login.defs
   set MAX=90 MIN=10 WARN=5
